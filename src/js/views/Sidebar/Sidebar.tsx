@@ -1,112 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   createStyles,
   fade,
   Theme,
   makeStyles,
 } from "@material-ui/core/styles";
-import {
-  AppBar,
-  Avatar,
-  Toolbar,
-  IconButton,
-  Typography,
-  InputBase,
-  Paper,
-} from "@material-ui/core";
-import { Sort, Search, HelpOutline } from "@material-ui/icons";
-import Logo from "../../../images/kg.svg";
+import { Paper } from "@material-ui/core";
+
+import Topbar from "./Topbar";
+import Actionsbar from "./Actionsbar";
+import Botbar from "./Botbar";
+import ArticleContainer from "./ArticleContainer";
+import FilterDrawer from "./FilterDrawer";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     paper: {
+      minWidth: 500,
       height: "100vh",
-    },
-    root: {
-      flexGrow: 1,
-    },
-    logo: {
-      marginRight: theme.spacing(2),
-      width: theme.spacing(3),
-      height: theme.spacing(3),
-    },
-    sortButton: {
-      marginLeft: theme.spacing(2),
-    },
-    title: {
-      flexGrow: 1,
-      display: "none",
-      [theme.breakpoints.up("sm")]: {
-        display: "block",
-      },
-    },
-    search: {
-      position: "relative",
-      borderRadius: theme.shape.borderRadius,
-      backgroundColor: fade(theme.palette.common.white, 0.15),
-      "&:hover": {
-        backgroundColor: fade(theme.palette.common.white, 0.25),
-      },
-      marginLeft: 0,
-      width: "100%",
-    },
-    searchIcon: {
-      padding: theme.spacing(0, 2),
-      height: "100%",
-      position: "absolute",
-      pointerEvents: "none",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-    },
-    inputRoot: {
-      color: "inherit",
-      padding: theme.spacing(0, 2),
-    },
-    inputInput: {
-      padding: theme.spacing(1),
-      width: "100%",
+      borderRadius: 0,
     },
   })
 );
 
 export default function Sidebar() {
   const classes = useStyles();
+  const [isOpen, setDrawerOpen] = useState(false);
+
+  const openFilterDrawer = () => {
+    setDrawerOpen(true);
+  };
+
+  const closeFilterDrawer = () => {
+    setDrawerOpen(false);
+  };
+
   return (
     <Paper className={classes.paper}>
-      <AppBar position="static" color="transparent" elevation={0}>
-        <Toolbar>
-          <Avatar className={classes.logo} src={Logo} variant="square" />
-          <div className={classes.search}>
-            <InputBase
-              fullWidth
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ "aria-label": "search" }}
-              startAdornment={
-                <IconButton color="inherit" size="small" disabled>
-                  <Search />
-                </IconButton>
-              }
-              endAdornment={
-                <IconButton color="inherit" size="small">
-                  <HelpOutline />
-                </IconButton>
-              }
-            />
-          </div>
-          <IconButton
-            className={classes.sortButton}
-            color="inherit"
-            size="medium"
-          >
-            <Sort />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
+      <Topbar openFilterDrawer={openFilterDrawer} />
+      <Actionsbar />
+      <ArticleContainer />
+      <Botbar />
+      <FilterDrawer open={isOpen} onClose={closeFilterDrawer} />
     </Paper>
   );
 }

@@ -25,16 +25,15 @@ export const theme = createMuiTheme({
   // shadows: ["none"],
   palette: {
     type: "dark",
-    // background: {
-    //   paper: colors.nord01,
-    //   default: colors.nord01,
-    //   search: colors.nord03,
-    // },
+    background: {
+      default: colors.nord04,
+      search: colors.nord03,
+    },
     action: {
       active: "#00d1b2",
     },
     primary: {
-      main: colors.nord14,
+      main: colors.nord15,
       // main: '#00d1b2'
     },
     secondary: {

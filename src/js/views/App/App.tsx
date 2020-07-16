@@ -7,6 +7,8 @@ import Sidebar from "../Sidebar/Sidebar";
 import { theme } from "../../../theme";
 
 function App() {
+  // TODO : resolve small screen size issue (min width)
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
