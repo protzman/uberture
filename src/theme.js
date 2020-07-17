@@ -29,6 +29,12 @@ export const theme = createMuiTheme({
       default: colors.nord04,
       search: colors.nord03,
     },
+    topics: {
+      domestic: colors.nord15,
+      local: colors.nord14,
+      world: colors.nord13,
+      government: colors.nord12,
+    },
     action: {
       active: "#00d1b2",
     },

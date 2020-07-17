@@ -20,6 +20,36 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
+enum topics {
+  domestic = "domestic",
+  local = "local",
+  world = "world",
+  government = "government",
+}
+
+const articles = [
+  {
+    label: "Domestic",
+    type: topics.domestic,
+  },
+  {
+    label: "Local news",
+    type: topics.local,
+  },
+  {
+    label: "Domestic",
+    type: topics.domestic,
+  },
+  {
+    label: "World Events and Military",
+    type: topics.world,
+  },
+  {
+    label: "Govetnment and Politics",
+    type: topics.government,
+  },
+];
+
 export default function ArticleContainer() {
   const classes = useStyles();
   return (
@@ -30,18 +60,11 @@ export default function ArticleContainer() {
         justify="space-evenly"
         alignItems="stretch"
       >
-        <Grid item>
-          <FakeArticle />
-        </Grid>
-        <Grid item>
-          <FakeArticle />
-        </Grid>
-        <Grid item>
-          <FakeArticle />
-        </Grid>
-        <Grid item>
-          <FakeArticle />
-        </Grid>
+        {articles.map((article) => (
+          <Grid item>
+            <FakeArticle article={article} />
+          </Grid>
+        ))}
       </Grid>
     </div>
   );
