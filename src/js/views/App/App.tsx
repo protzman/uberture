@@ -1,15 +1,39 @@
 import React from "react";
-import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
+import {
+  ThemeProvider,
+  createStyles,
+  Theme,
+  makeStyles,
+} from "@material-ui/core/styles";
 import { CssBaseline, Grid } from "@material-ui/core";
-
+import "mapbox-gl/dist/mapbox-gl.css";
 import Sidebar from "../Sidebar/Sidebar";
 import Map from "../Map/Map";
 import Timeline from "../../components/Timeline";
 
 import { theme } from "../../../theme";
 
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    mapContainer: {
+      position: "relative",
+      display: "flex",
+      flexDirection: "column",
+      width: "100%",
+    },
+    timelineContainer: {
+      height: "200px",
+      width: "100%",
+      position: "absolute",
+      bottom: "16px",
+      left: "0px",
+    },
+  })
+);
+
 function App() {
   // TODO : resolve small screen size issue (min width)
+  const classes = useStyles();
 
   return (
     <ThemeProvider theme={theme}>
@@ -19,25 +43,9 @@ function App() {
           <Sidebar />
         </Grid>
         <Grid item xs={9}>
-          <div
-            className="map-container"
-            style={{
-              position: "relative",
-              display: "flex",
-              flexDirection: "column",
-              width: "100%",
-            }}
-          >
+          <div className={classes.mapContainer}>
             <Map />
-            <div
-              style={{
-                height: "200px",
-                width: "100%",
-                position: "absolute",
-                bottom: "16px",
-                left: "0px",
-              }}
-            >
+            <div className={classes.timelineContainer}>
               <Timeline />
             </div>
           </div>

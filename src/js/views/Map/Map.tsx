@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ReactMapGL, { FlyToInterpolator } from "react-map-gl";
 import DeckGL from "deck.gl";
 
@@ -17,7 +17,7 @@ export default function Map() {
     ...INITIAL_VIEW,
   });
 
-  let map: any;
+  // let map: any;
   const MAP_ELEMENT_ID = "map-div";
   const baseLayer = {
     version: 8,
@@ -62,7 +62,7 @@ export default function Map() {
           const { width, height, ...etc } = viewport;
           setViewport(etc);
         }}
-        ref={(ref) => (map = ref?.getMap())}
+        // ref={(ref) => (map = ref?.getMap())}
       >
         <DeckGL
           {...viewport}

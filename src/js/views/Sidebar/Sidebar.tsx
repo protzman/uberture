@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import {
-  createStyles,
-  fade,
-  Theme,
-  makeStyles,
-} from "@material-ui/core/styles";
+import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import { Paper } from "@material-ui/core";
 
 import Topbar from "./Topbar";
@@ -26,6 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function Sidebar() {
   const classes = useStyles();
   const [isOpen, setDrawerOpen] = useState(false);
+  const [compact, setCompactView] = useState(false);
 
   const openFilterDrawer = () => {
     setDrawerOpen(true);
@@ -35,11 +31,15 @@ export default function Sidebar() {
     setDrawerOpen(false);
   };
 
+  const toggleCompactView = () => {
+    setCompactView(!compact);
+  };
+
   return (
     <Paper className={classes.paper}>
       <Topbar openFilterDrawer={openFilterDrawer} />
-      <Actionsbar />
-      <ArticleContainer />
+      <Actionsbar compact={compact} toggleCompactView={toggleCompactView} />
+      <ArticleContainer compact={compact} />
       <Botbar />
       <FilterDrawer open={isOpen} onClose={closeFilterDrawer} />
     </Paper>

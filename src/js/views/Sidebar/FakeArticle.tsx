@@ -18,17 +18,20 @@ enum topics {
 
 const useStyles = makeStyles<Theme, Props>((theme: Theme) =>
   createStyles({
-    paper: ({ article }: Props) => ({
+    paper: ({ article, compact }: Props) => ({
       backgroundColor: fade(theme.palette.background.default, 0.2),
       borderLeft: `${theme.spacing(1)}px solid ${
         theme.palette.topics[article.type]
       }`,
-      margin: theme.spacing(2),
-      height: 500,
+      borderRight: `${theme.spacing(1)}px solid ${
+        theme.palette.topics[article.type]
+      }`,
+      margin: theme.spacing(1, 2),
+      minHeight: !compact ? 500 : 300,
     }),
-    container: {
-      marginTop: -36,
-    },
+    container: ({ article, compact }: Props) => ({
+      marginTop: !compact ? -36 : 0,
+    }),
     tag: ({ article }: Props) => ({
       position: "relative",
       zIndex: 100,
@@ -51,23 +54,24 @@ interface Props {
     label: string;
     type: topics;
   };
+  compact: boolean;
 }
 
-export default function FakeArticle({ article }: Props) {
-  const classes = useStyles({ article });
+export default function FakeArticle({ article, compact }: Props) {
+  const classes = useStyles({ article, compact });
   return (
     <Paper className={classes.paper}>
       <Button disableElevation className={classes.tag} variant="contained">
         {article.label}
       </Button>
       <div className={classes.container}>
-        <Skeleton variant="rect" height={200} />
-        <Box marginTop={1} marginX={2}>
+        {!compact && <Skeleton variant="rect" height={200} />}
+        <Box paddingTop={1} paddingX={2}>
           <Skeleton height={40} />
           <Skeleton height={40} width="60%" />
           <Skeleton height={20} width="30%" />
         </Box>
-        <Box marginTop={1} marginX={2}>
+        <Box paddingTop={1} paddingX={2}>
           <Grid container spacing={1}>
             <Grid item xs={2}>
               <Skeleton height={30} />
@@ -107,7 +111,7 @@ export default function FakeArticle({ article }: Props) {
             </Grid>
           </Grid>
         </Box>
-        <Box marginTop={1} marginX={2}>
+        <Box paddingY={1} paddingX={2}>
           <Skeleton height={40} width="20%" />
         </Box>
       </div>

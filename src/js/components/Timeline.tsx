@@ -114,8 +114,7 @@ export default function Timeline() {
       {...frameProps}
       interaction={{
         end: (e: any) => {
-          // setExtent(e);
-          console.log(e);
+          setExtent(e);
         },
         xBrushExtent: extent,
         brush: "xBrush",

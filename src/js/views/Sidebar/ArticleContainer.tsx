@@ -1,10 +1,5 @@
-import React from "react";
-import {
-  createStyles,
-  fade,
-  Theme,
-  makeStyles,
-} from "@material-ui/core/styles";
+import React, { useState } from "react";
+import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import { Grid } from "@material-ui/core";
 import FakeArticle from "./FakeArticle";
 
@@ -29,29 +24,38 @@ enum topics {
 
 const articles = [
   {
+    key: 1,
     label: "Domestic",
     type: topics.domestic,
   },
   {
+    key: 2,
     label: "Local news",
     type: topics.local,
   },
   {
+    key: 3,
     label: "Domestic",
     type: topics.domestic,
   },
   {
+    key: 4,
     label: "World Events and Military",
     type: topics.world,
   },
   {
+    key: 5,
     label: "Govetnment and Politics",
     type: topics.government,
   },
 ];
 
-export default function ArticleContainer() {
+interface Props {
+  compact: boolean;
+}
+export default function ArticleContainer({ compact }: Props) {
   const classes = useStyles();
+
   return (
     <div className={classes.root}>
       <Grid
@@ -61,8 +65,8 @@ export default function ArticleContainer() {
         alignItems="stretch"
       >
         {articles.map((article) => (
-          <Grid item>
-            <FakeArticle article={article} />
+          <Grid item key={article.key}>
+            <FakeArticle article={article} compact={compact} />
           </Grid>
         ))}
       </Grid>

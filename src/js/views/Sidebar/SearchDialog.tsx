@@ -70,12 +70,8 @@ export default function SearchDialog({ open, onClose }: Props) {
             <strong>Full Search Reference</strong>
           </p>
           <p>
-            Under the hood, the system is using the
-            <a
-              href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-simple-query-string-query.html"
-              target="_blank"
-            >
-              {" "}
+            {`Under the hood, the system is using the `}
+            <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-simple-query-string-query.html">
               Elasticsearch Simple Query String
             </a>
             . See that documentation for the full syntax.
