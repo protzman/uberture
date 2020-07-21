@@ -10,10 +10,16 @@ import { Paper, Box, Grid, Button } from "@material-ui/core";
 import { Skeleton } from "@material-ui/lab";
 
 enum topics {
-  domestic = "domestic",
-  local = "local",
-  world = "world",
   government = "government",
+  advertising = "advertising",
+  world = "world",
+  religion = "religion",
+  energy = "energy",
+  local = "local",
+  domestic = "domestic",
+  weather = "weather",
+  middle = "middle",
+  social = "social",
 }
 
 const useStyles = makeStyles<Theme, Props>((theme: Theme) =>

@@ -5,17 +5,29 @@ import {
 
 declare module "@material-ui/core/styles/createPalette" {
   interface TagPaletteColor {
-    domestic: string;
-    local: string;
-    world: string;
     government: string;
+    advertising: string;
+    world: string;
+    religion: string;
+    energy: string;
+    local: string;
+    domestic: string;
+    weather: string;
+    middle: string;
+    social: string;
   }
 
   interface TagPaletteColorOptions {
-    domestic?: string;
-    local?: string;
-    world?: string;
     government?: string;
+    advertising?: string;
+    world?: string;
+    religion?: string;
+    energy?: string;
+    local?: string;
+    domestic?: string;
+    weather?: string;
+    middle?: string;
+    social?: string;
   }
 
   interface Palette {

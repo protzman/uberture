@@ -11,6 +11,7 @@ import {
   Toolbar,
   IconButton,
   InputBase,
+  Badge,
 } from "@material-ui/core";
 import { Sort, Search, HelpOutline } from "@material-ui/icons";
 import Logo from "../../../images/kg.svg";
@@ -99,13 +100,15 @@ export default function Topbar({ openFilterDrawer }: Props) {
           >
             <HelpOutline />
           </IconButton>
-          <IconButton
-            className={classes.actionButton}
-            color="inherit"
-            onClick={openFilterDrawer}
-          >
-            <Sort />
-          </IconButton>
+          <Badge badgeContent={3} color="primary" overlap="circle">
+            <IconButton
+              className={classes.actionButton}
+              color="inherit"
+              onClick={openFilterDrawer}
+            >
+              <Sort />
+            </IconButton>
+          </Badge>
         </Toolbar>
         <SearchDialog open={isOpen} onClose={closeSearchDialog} />
       </AppBar>

@@ -16,37 +16,68 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 enum topics {
-  domestic = "domestic",
-  local = "local",
-  world = "world",
   government = "government",
+  advertising = "advertising",
+  world = "world",
+  religion = "religion",
+  energy = "energy",
+  local = "local",
+  domestic = "domestic",
+  weather = "weather",
+  middle = "middle",
+  social = "social",
 }
 
 const articles = [
   {
+    key: 0,
+    label: "Government and Politics",
+    type: topics.government,
+  },
+  {
     key: 1,
-    label: "Domestic",
-    type: topics.domestic,
+    label: "Advertising",
+    type: topics.advertising,
   },
   {
     key: 2,
-    label: "Local news",
-    type: topics.local,
-  },
-  {
-    key: 3,
-    label: "Domestic",
-    type: topics.domestic,
-  },
-  {
-    key: 4,
     label: "World Events and Military",
     type: topics.world,
   },
   {
+    key: 3,
+    label: "Religion and Intl Relations",
+    type: topics.religion,
+  },
+  {
+    key: 4,
+    label: "Energy",
+    type: topics.energy,
+  },
+  {
     key: 5,
-    label: "Govetnment and Politics",
-    type: topics.government,
+    label: "Local News",
+    type: topics.local,
+  },
+  {
+    key: 6,
+    label: "Domestic",
+    type: topics.domestic,
+  },
+  {
+    key: 7,
+    label: "Weather",
+    type: topics.weather,
+  },
+  {
+    key: 8,
+    label: "Middle East",
+    type: topics.middle,
+  },
+  {
+    key: 9,
+    label: "Social Issues",
+    type: topics.social,
   },
 ];
 

@@ -28,6 +28,9 @@ const useStyles = makeStyles((theme: Theme) =>
       bottom: "16px",
       left: "0px",
     },
+    sidebar: {
+      width: "25%",
+    },
   })
 );
 
@@ -39,10 +42,10 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Grid container>
-        <Grid item xs={3}>
+        <Grid item className={classes.sidebar}>
           <Sidebar />
         </Grid>
-        <Grid item xs={9}>
+        <Grid item xs>
           <div className={classes.mapContainer}>
             <Map />
             <div className={classes.timelineContainer}>

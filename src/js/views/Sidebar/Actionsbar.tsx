@@ -1,7 +1,19 @@
 import React, { useState } from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
-import { AppBar, Toolbar, IconButton, Tab, Tabs } from "@material-ui/core";
-import { Fullscreen, FullscreenExit, GetApp } from "@material-ui/icons";
+import {
+  AppBar,
+  Button,
+  Toolbar,
+  IconButton,
+  Tab,
+  Tabs,
+} from "@material-ui/core";
+import {
+  Fullscreen,
+  FullscreenExit,
+  GetApp,
+  ImportExport,
+} from "@material-ui/icons";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -34,7 +46,7 @@ export default function Actionsbar({ compact, toggleCompactView }: Props) {
     <>
       <AppBar position="static" color="transparent" elevation={0}>
         <Toolbar>
-          <Tabs
+          {/* <Tabs
             value={value}
             indicatorColor="primary"
             textColor="primary"
@@ -43,8 +55,11 @@ export default function Actionsbar({ compact, toggleCompactView }: Props) {
           >
             <Tab label="Most Relevant" />
             <Tab label="Most Recent" />
-          </Tabs>
+          </Tabs> */}
           <div className={classes.spacer} />
+          <Button color="primary" startIcon={<ImportExport />}>
+            Recent
+          </Button>
           <IconButton className={classes.actionButton} color="inherit">
             <GetApp />
           </IconButton>

@@ -19,6 +19,16 @@ const colors = {
   nord13: "#EBCB8B", // yellow
   nord14: "#A3BE8C", // green
   nord15: "#B48EAD", // purple
+  palette00: "#BF616A",
+  palette01: "#D08770",
+  palette02: "#DEA97E",
+  palette03: "#EBCB8B",
+  palette04: "#C7C58C",
+  palette05: "#A3BE8C",
+  palette06: "#81A09C",
+  palette07: "#5E81AC",
+  palette08: "#8988AD",
+  palette09: "#B48EAD",
 };
 
 export const theme = createMuiTheme({
@@ -30,10 +40,16 @@ export const theme = createMuiTheme({
       search: colors.nord03,
     },
     topics: {
-      domestic: colors.nord15,
-      local: colors.nord14,
-      world: colors.nord13,
-      government: colors.nord12,
+      government: colors.palette00,
+      advertising: colors.palette01,
+      world: colors.palette02,
+      religion: colors.palette03,
+      energy: colors.palette04,
+      local: colors.palette05,
+      domestic: colors.palette06,
+      weather: colors.palette07,
+      middle: colors.palette08,
+      social: colors.palette09,
     },
     action: {
       active: "#00d1b2",

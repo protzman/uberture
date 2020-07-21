@@ -11,7 +11,6 @@ import FilterDrawer from "./FilterDrawer";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     paper: {
-      minWidth: 500,
       height: "100vh",
       borderRadius: 0,
     },
